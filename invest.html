@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryptoArmenia | Ներդրումների վիճակագրություն</title>
+  <style>
+    :root{
+      --bg:#05070f;--card:rgba(255,255,255,.08);
+      --accent:#7c7cff;--accent2:#00e0a4;
+      --text:#f1f3ff;--muted:#a3accf;--warn:#ffd166
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top,#0b0f2a,#05070f 70%);color:var(--text)}
+
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px 16px;max-width:1200px;margin:auto}
+    header h1{font-size:26px;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    header a{color:var(--text);text-decoration:none;opacity:.85}
+    header a:hover{opacity:1;color:var(--accent2)}
+
+    .hero{text-align:center;padding:120px 16px 80px}
+    .hero h2{font-size:48px;margin-bottom:20px}
+    .hero p{font-size:18px;color:var(--muted);max-width:760px;margin:auto}
+
+    section{max-width:1200px;margin:auto;padding:80px 16px}
+
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px}
+    .stat{background:var(--card);padding:40px;border-radius:28px;text-align:center;backdrop-filter:blur(16px);box-shadow:0 30px 90px rgba(0,0,0,.7)}
+    .stat h3{font-size:20px;color:var(--muted);margin-bottom:14px}
+    .stat .num{font-size:46px;font-weight:700;color:var(--accent2)}
+    .stat span{font-size:18px;color:var(--accent)}
+
+    .note{margin-top:60px;background:rgba(255,255,255,.06);padding:36px;border-radius:26px;color:var(--muted);line-height:1.8}
+
+    footer{text-align:center;padding:60px 16px;font-size:15px;color:var(--muted);border-top:1px solid rgba(255,255,255,.07)}
+    footer a{color:#9aa4bf;text-decoration:none}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CryptoArmenia</h1>
+  <a href="/">← Վերադառնալ գլխավոր էջ</a>
+</header>
+
+<div class="hero">
+  <h2>Ներդրումների ընդհանուր վիճակագրություն</h2>
+  <p>Ստորև ներկայացված տվյալները ցուցադրում են մոտավոր ակտիվությունը հարթակում և նախատեսված են միայն տեղեկատվական նպատակներով։</p>
+</div>
+
+<section>
+  <div class="stats">
+    <div class="stat">
+      <h3>Ակտիվ ներդրողներ</h3>
+      <div class="num" data-target="16">0</div>
+      <span>մարդ</span>
+    </div>
+    <div class="stat">
+      <h3>Ընդհանուր ներդրված գումար</h3>
+      <div class="num" data-target="2544">0</div>
+      <span>USD</span>
+    </div>
+    <div class="stat">
+      <h3>Ստացված ընդհանուր շահույթ</h3>
+      <div class="num" data-target="952">0</div>
+      <span>USD</span>
+    </div>
+  </div>
+
+  <div class="note">
+    <p><strong>Կարևոր նկատառում</strong></p>
+    <p>
+      Նշված թվերը հանդիսանում են մոտավոր և ցուցադրական։ Դրանք չեն հանդիսանում
+      ֆինանսական հաշվետվություն կամ եկամտի երաշխիք։ Կրիպտո ներդրումները պարունակում են ռիսկեր։
+    </p>
+    <p>
+      Ներդրում կատարելուց առաջ պարտադիր կապ հաստատեք մեր պաշտոնական Telegram ալիքի միջոցով։
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 CryptoArmenia • Բոլոր իրավունքները պաշտպանված են<br/>
+  <a href="/">Գլխավոր էջ</a> | <a href="https://t.me/crypto0armenia" target="_blank">Telegram</a>
+</footer>
+
+<script>
+  const counters = document.querySelectorAll('.num');
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const speed = 60;
+    const update = () => {
+      const current = +counter.innerText;
+      const inc = Math.ceil(target / speed);
+      if(current < target){
+        counter.innerText = current + inc;
+        setTimeout(update, 40);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+</script>
+
+</body>
+</html>
